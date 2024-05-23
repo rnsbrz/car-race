@@ -2,6 +2,7 @@ package com.spring.porscheRace.service;
 
 import com.spring.porscheRace.model.User;
 import com.spring.porscheRace.repository.UserRepository;
+import com.spring.porscheRace.utils.BCryptPassword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
