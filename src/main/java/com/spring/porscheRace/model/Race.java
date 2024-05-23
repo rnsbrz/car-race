@@ -10,18 +10,21 @@ public class Race {
     private int id;
     private String car1;
     private String car2;
+    private String location;
     private String result;
 
-    public Race(int id, String car1, String car2, String result) {
+    public Race(int id, String car1, String car2, String location, String result) {
         this.id = id;
         this.car1 = car1;
         this.car2 = car2;
+        this.location = location;
         this.result = result;
     }
 
-    public Race(String car1, String car2, String result) {
+    public Race(String car1, String car2, String location, String result) {
         this.car1 = car1;
         this.car2 = car2;
+        this.location = location;
         this.result = result;
     }
 
@@ -50,6 +53,14 @@ public class Race {
 
     public void setCar2(String car2) {
         this.car2 = car2;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getResult() {
