@@ -38,6 +38,12 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/register")
+    public String registrationPage(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
     @PostMapping("/register")
     public String registerNewUser(@Valid @ModelAttribute("user") User u, BindingResult br){
         if (br.hasErrors()){
