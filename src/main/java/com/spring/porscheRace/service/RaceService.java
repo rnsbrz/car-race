@@ -1,6 +1,5 @@
 package com.spring.porscheRace.service;
 
-import com.spring.porscheRace.model.Car;
 import com.spring.porscheRace.model.Race;
 
 import java.util.List;
