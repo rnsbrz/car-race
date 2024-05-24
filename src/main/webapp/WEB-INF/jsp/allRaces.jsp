@@ -20,17 +20,14 @@
         </tr>
         <c:forEach var="race" items="${races}">
 
-            <!-- Construct address for number updating by id -->
             <c:url var="updateRace" value="/updateRace">
                 <c:param name="id" value="${race.id}"/>
             </c:url>
 
-            <!-- Construct number deletion address by id -->
             <c:url var="delete" value="/delete">
                 <c:param name="id" value="${race.id}"/>
             </c:url>
 
-            <!-- Construct number show address by id -->
             <c:url var="showRace" value="/showRace">
                 <c:param name="id" value="${race.id}"/>
             </c:url>
