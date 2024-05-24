@@ -18,11 +18,10 @@
         }
 
         .form-container {
-            max-width: 700px;
+            max-width: 1000px;
             padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
 
         h2 {
