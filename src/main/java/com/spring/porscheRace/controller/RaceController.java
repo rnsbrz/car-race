@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -42,29 +43,27 @@ public class RaceController {
         } else {
             String car1 = cars.get("car1");
             String car2 = cars.get("car2");
-            int num1 = Integer.parseInt(cars.get("num1"));
-            int num2 = Integer.parseInt(cars.get("num2"));
+            int car1Hp = Integer.parseInt(cars.get("car1Hp"));
+            int car2Hp = Integer.parseInt(cars.get("car2Hp"));
 
             String result;
 
             Random random = new Random();
 
-            double totalHp = num1 + num2;
-            double odds = num1/totalHp;
+            double totalHp = car1Hp + car2Hp;
+            double odds1 = car1Hp/totalHp;
+            double odds2 = 1-odds1;
             double randomValue = random.nextDouble();
 
-            if(randomValue < odds){
-                result = car1+" wins!";
-            } else {
-                result = car2+" wins!";
-            }
+            result = randomValue < odds1 ? car1 + " wins!" : car2 + " wins!";
 
-            modelMap.put("num1", num1);
-            modelMap.put("num2", num2);
+            modelMap.put("car1Hp", car1Hp);
+            modelMap.put("car2Hp", car2Hp);
             modelMap.put("car1", car1);
             modelMap.put("car2", car2);
+            modelMap.put("result", result);
 
-            raceService.save(new Race(car1, car2, num1, num2, result));
+            raceService.save(new Race(car1, car2, car1Hp, car2Hp, result));
 
             return "result";
         }
@@ -88,7 +87,7 @@ public class RaceController {
     public String delete(int id, Model model) {
         raceService.delete(id);
         model.addAttribute("race", raceService.getAll());
-        return "allRaces";
+        return "redirect:/allRaces";
     }
 
     @GetMapping(value = "/updateRace")

@@ -20,12 +20,11 @@ public class Race {
     @NotBlank(message = "Cannot be blank")
     @Size(max = 30, message = "Name up to 30 characters")
     private String car2;
-    @NotNull
-    @Min(value = 1, message = "Cannot be less than 1")
+
     private int car1Hp;
-    @NotNull
-    @Min(value = 1, message = "Cannot be less than 1")
+
     private int car2Hp;
+
     private String result;
 
     public Race(int id, String car1, String car2, int car1Hp, int car2Hp, String result) {
